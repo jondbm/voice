@@ -343,11 +343,11 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
   }
 
   @Override
-  public void onResults(Bundle results) {
+public void onResults(Bundle results) {
     WritableArray arr = Arguments.createArray();
 
     ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-    if (matches != null) {
+    if (matches != null) { // this is the change that makes sure the crash doesn't happen
       for (String result : matches) {
         arr.pushString(result);
       }
